@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <%= link_to 'Payments', payments_path %>
+      <%= link_to 'Clients', owners_path %>
+      <%= link_to 'Projects', projects_path%>
+    </nav>
+  	<!-- <p class="notice"><%= notice %></p> -->
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

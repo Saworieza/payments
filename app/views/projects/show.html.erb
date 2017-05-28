@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @project.owner.name %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+<p>
+  <strong>Project Cost</strong>
+  <%= @project.projectcost %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @project.start.strftime("%B %d, %y") %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @project.end.strftime("%B %d, %y") %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>

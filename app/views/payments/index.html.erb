@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Payments</h1>
+Total Payments to Date Ksh <%= @total_payments %><br>
+
+<%= link_to 'New Payment', new_payment_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Project</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Method</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%= payment.owner.name %></td>
+        <td><%= payment.project.name %></td>
+        <td><%= payment.date.strftime("%B %d, %Y") %></td>
+        <td><%= payment.amount %></td>
+        <td><%= payment.method %></td>
+        <td><%= link_to 'Show', payment %></td>
+        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

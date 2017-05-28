@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @owner.name %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @owner.organization %>
+</p>
+
+<div>
+	<h3>Projects</h3>
+	<% @owner.projects.each do |project| %>
+		<%= project.name %> Cost <%= project.projectcost %><br>
+	<% end %>
+</div>
+
+<div>
+	<h3>Payments</h3>
+	<% @owner.payments.each do |payment| %>
+		<%= payment.project.name %>
+		Ksh<%= payment.amount %>
+		<%= payment.date.strftime("%B %d, %Y")%>
+		<%= payment.method %><br>
+	<% end %>
+	<p>Total : <%= @owner.totalpayments %></p>
+	<p>Balance : <%= @owner.balance %></p>
+</div>
+
+
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %> |
+<%= link_to 'Delete', @owner, method: :delete, data: { confirm: 'Are you sure?' } %>
+

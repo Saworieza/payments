@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clients</h1>
+<%= link_to 'New Client', new_owner_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Organization</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owners.each do |owner| %>
+      <tr>
+        <td><%= link_to owner.name, owner %></td>
+        <td><%= owner.organization %></td>
+        <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
